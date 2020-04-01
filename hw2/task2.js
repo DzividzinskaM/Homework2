@@ -25,7 +25,7 @@ while(true){
     }
 }
 
-while(true){
+while(price){
     color = prompt("Enter phone color");
     if(!color){
         break;
@@ -37,7 +37,7 @@ while(true){
     }
 }
 
-if(!price || phoneImg === ""){
+if(!phoneImg){
     alert("Not enough information");
 } else{
     document.write(`<h1>Price: ${price} $</h1><br>`);
