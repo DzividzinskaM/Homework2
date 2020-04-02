@@ -41,7 +41,7 @@ let colorPhone = [
 ];
 
 
-while(true){
+memory: while(true) {
     memory = prompt("Enter phone memory");
     if(!memory){
         break;
@@ -49,17 +49,13 @@ while(true){
     for (let i = 0; i < memoryPhone.length; i++) {
         if(memoryPhone[i].memory == +memory){
             price = memoryPhone[i].price;
-            break;
+            break memory;
         }
     }
-    if(!price){
-        alert("Your information isn't correct, please try again");
-    } else {
-        break;
-    }
+    alert("Your information isn't correct, please try again");
 }
 
-while(price){
+color: while(price){
     color = prompt("Enter phone color");
     if(!color){
         break;
@@ -68,15 +64,10 @@ while(price){
         if(colorPhone[i].color===color.toLowerCase()){
             price += colorPhone[i].price;
             phoneImg = colorPhone[i].image;
-            break;
+            break color;
         }
     }
-    if(!phoneImg){
-        alert("Your information isn't correct, please try again");
-    }
-    else {
-        break;
-    }
+    alert("Your information isn't correct, please try again")
 }
 
 if(!phoneImg){
