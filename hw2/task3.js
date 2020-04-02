@@ -1,65 +1,85 @@
-let phoneImg = "";
 let price = 0;
-let memoryPrice = {
-    64: 300,
-    128: 500,
-    256: 700
-}
+let phoneImg = "";
 
-let PhoneColor = {
-    black: {
-        image: "black-phone.jpg",
-        price: 30
-    }, 
-    red: {
-        image: "red-phone.jpg", 
-        price: 20
+let memoryPhone = [
+    {
+        memory: 64,
+        price: 300
     },
-    white: {
-        image: "white-phone.jpg",
-        price: 15
+    {
+        memory: 128,
+        price: 500
     },
-    gold: {
-        image: "gold-phone.jpg", 
-        price: 100
+    {
+        memory: 256,
+        price: 700
     }
-}
+];
 
 
-let flagOfMemory = false;
-let flagOfColor = false;
+let colorPhone = [
+    {
+        color: "black",
+        price: 30,
+        image: "black-phone.jpg"
+    },
+    {
+        color: "gold",
+        price: 100,
+        image: "gold-phone.jpg"
+    },
+    {
+        color: "red",
+        price: 20,
+        image: "red-phone.jpg"
+    },
+    {
+        color: "white",
+        price: 15,
+        image: "white-phone.jpg"
+    }
+];
 
 
 while(true){
     memory = prompt("Enter phone memory");
     if(!memory){
         break;
-    }else if(memoryPrice[memory]){
-        price = memoryPrice[memory];
-        flagOfMemory = true;
-        break;
-    } else{
+    }
+    for (let i = 0; i < memoryPhone.length; i++) {
+        if(memoryPhone[i].memory == +memory){
+            price = memoryPhone[i].price;
+            break;
+        }
+    }
+    if(!price){
         alert("Your information isn't correct, please try again");
+    } else {
+        break;
     }
 }
 
-while(true){
+while(price){
     color = prompt("Enter phone color");
     if(!color){
         break;
     }
-    let value = PhoneColor[color.toLowerCase()];
-    if(value){
-        phoneImg = value["image"];
-        price += value["price"];
-        flagOfColor = true;
-        break;
-    } else{
+    for (let i = 0; i < colorPhone.length; i++) {
+        if(colorPhone[i].color===color.toLowerCase()){
+            price += colorPhone[i].price;
+            phoneImg = colorPhone[i].image;
+            break;
+        }
+    }
+    if(!phoneImg){
         alert("Your information isn't correct, please try again");
+    }
+    else {
+        break;
     }
 }
 
-if(!flagOfColor || !flagOfMemory){
+if(!phoneImg){
     alert("Not enough information");
 } else{
     document.write(`<h1>Price: ${price} $</h1><br>`);
