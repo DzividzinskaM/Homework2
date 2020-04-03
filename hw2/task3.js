@@ -47,7 +47,7 @@ memory: while(true) {
         break;
     }
     for (let i = 0; i < memoryPhone.length; i++) {
-        if(memoryPhone[i].memory == +memory){
+        if(memoryPhone[i].memory === memory){
             price = memoryPhone[i].price;
             break memory;
         }
