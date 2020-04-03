@@ -1,9 +1,9 @@
 //TASK 1 
 let sequence = function(start = 0, step = 1) {
-    let counter = 0;
+    let flag = false;
     return function() {
-        if(!counter){
-            counter++;
+        if(!flag){
+            flag = true;
             return start;
         }
         return start +=step;
