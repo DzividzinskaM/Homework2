@@ -1,11 +1,7 @@
 //TASK 1 
 let sequence = function(start = 0, step = 1) {
-    let flag = false;
+    start -= step;
     return function() {
-        if(!flag){
-            flag = true;
-            return start;
-        }
         return start +=step;
     }
 }
