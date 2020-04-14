@@ -21,10 +21,10 @@ const TodosModel = (function () {
         },
         removeTodo: function(todoId, cb){
             let indexRemoveItem = 0;
-            Todos.forEach((todo, index) => {
-                if(todo.id === todoId)
+             Todos.forEach((todo, index) => {
+                if(todo.id === +todoId)
                     indexRemoveItem = index;
-            });
+            }); 
             Todos.splice(indexRemoveItem, 1);
             cb(Todos);
         }
