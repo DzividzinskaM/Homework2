@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+.tabs__container{
+    height: 400px;
+    width: 80%;
+    position: absolute;
+}
+
+.tabs-control {
+    padding: 10px;
+}
+
+.tabs-control.active {
+    background-color: red;
+}
+
+.tab {
+    display: none;
+    padding: 50px;
+}
+
+.tabs__controls {
+    display: flex;
+
+}
+
+.active {
+    border: red 2px solid;
+    display: block;
+}
