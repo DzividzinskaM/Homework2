@@ -12,7 +12,6 @@ $(tabsControl).on('click', function() {
     let activeTab = `${tabs}[${tabAttr}=${Number}]`;
     let activeControl = `${tabsControl}[${tabAttr}=${Number}]`;
 
-    console.log(activeTab);
     $(activeTab).addClass(active);
     $(activeControl).addClass(active);
 });
