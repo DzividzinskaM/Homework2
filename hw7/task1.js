@@ -32,10 +32,10 @@ class View {
     this.minusBtn = document.querySelector(".counter__btn--minus");
     this.counter = document.querySelector(".counter");
 
-    this.btns ={
+    /* this.btns ={
         plus: false,
         minus: false
-    }
+    } */
 
   }
 
@@ -43,7 +43,29 @@ class View {
     this.counterEl.innerHTML = number;
   }
 
- listen(){
+
+  listenIncrement() {
+    return new Promise((resolve, reject) =>{
+      this.counter.addEventListener('click', (e) =>{
+        if(e.target.matches(".counter__btn--plus")){
+          resolve(true);
+        }
+      });
+    });
+  }
+
+
+  listenDecrement() {
+    return new Promise((resolve, reject) =>{
+      this.counter.addEventListener('click', (e) =>{
+        if(e.target.matches(".counter__btn--minus")){
+          resolve(true);
+        }
+      });
+    });
+  }
+
+ /* listen(){
      this.btns.plus = false;
      this.btns.minus =false;
     return new Promise((resolve, reject) => {
@@ -57,7 +79,7 @@ class View {
             }
         })
     });
-  }
+  } */
 }
 
 const view = new View();
@@ -65,22 +87,24 @@ const view = new View();
 class Controller {
   constructor() {
     view.render(model.getNumber());
-    this.listenBtns();
+    this.listenPlus();
+    this.listenMinus();
   }
-  
-async listenBtns(){
 
-    let b = await view.listen();
-    if(b.plus){
-        let newNumber = await model.increment();
-        view.render(newNumber);
-    } else if(b.minus) {
-        let newNumber = await model.decrement();
-        view.render(newNumber);
-    }
-    this.listenBtns();
- }
+
+  async listenPlus(){
+   await view.listenIncrement();
+   let newNumber = await model.increment();
+   view.render(newNumber);
+
+  }
+
+  async listenMinus(){
+    await view.listenDecrement();
+    let newNumber = await model.decrement();
+    view.render(newNumber);
+
+  }
 }
 
 const controller = new Controller();
-
