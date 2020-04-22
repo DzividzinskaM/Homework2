@@ -1,0 +1,11 @@
+@import "header";
+
+* {
+  box-sizing: border-box;
+}
+
+.example {
+  display: grid;
+  transition: all .5s;
+  user-select: none;
+}
