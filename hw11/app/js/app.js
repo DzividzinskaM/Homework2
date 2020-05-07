@@ -3,6 +3,7 @@
 
 import { TodosContainer } from "./components/todos-container/todos.container";
 import { templates } from "./templates";
+import { TodosForm } from "./components/todos-form/todos.form"
 
 // (function () {
 //   const appProviders = {
@@ -18,5 +19,7 @@ import { templates } from "./templates";
 
 (function () {
   window.Templates = templates();
-  $("#todos-app").html(new TodosContainer().render());
+  $("#todos-app").html(new TodosContainer().renderContainer());
+  //$("#todos-app").html(new TodosContainer().renderForm());
+ // $("#todos-app").html(new TodosF.render());
 })();

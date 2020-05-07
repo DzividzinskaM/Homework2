@@ -1,16 +1,15 @@
-import {todoTemplates} from "./../../templates.js";
+
  
 export class TodosListComponent {
   constructor(properties = {}) {
-    this.host = $('<div class="todos-list"></div>');
+    this.host = $('<div class="todos__list"></div>');
     this.properties = properties;
-    // this.properties.todosCollection.subscribe((list) => {
-    //   console.log(list);
-    // })
+    /* this.properties.todosCollection.subscribe((list) => {
+        console.log(list);
+     }) */
   }
 
   render() {
-     console.log(this.properties.todosCollection.getRaw());
     this.host.html(window.Templates["todo"](this.properties.todosCollection.getRaw()));
     return this.host; 
   }

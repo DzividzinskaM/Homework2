@@ -1,6 +1,7 @@
 import { TodosListComponent } from "../todos-list/todos-list.component";
 import { TodoModel } from "../../models/todo.model";
 import { TodosCollection } from "../../models/todos.collection";
+import { TodosForm } from "../todos-form/todos.form";
 
 export class TodosContainer {
   constructor() {
@@ -17,13 +18,15 @@ export class TodosContainer {
     });
   }
 
-  render() {
+  renderContainer() {
     this.host.html(window.Templates["todos-container"]());
     this.host.find(".todos__list").html(
       new TodosListComponent({
         todosCollection: this.todosCollection,
       }).render()
     );
+    this.host.find(".todos__form").html(new TodosForm().render());
     return this.host;
   }
+
 }

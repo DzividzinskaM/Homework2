@@ -22,6 +22,14 @@ export function templates() {
     });
     return tmplStr;
   };
+
+  templates["form"] = function() {
+    console.log("form");
+    return `
+        <input type="text" class="todos-form__input" />
+        <button class="todos-form__add">Add todo</button>
+      `;
+  };
   return templates;
 }
 
