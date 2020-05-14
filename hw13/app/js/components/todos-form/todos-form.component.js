@@ -1,9 +1,14 @@
 import { todosFormTemplate } from "./todos-form.template";
+import { TodosService } from "../../services/todos.service";
+import { TodosEffects, useEffect } from "../../effects";
+import { tryToAddTodo, addTodo } from "../../constants/action";
 
 export class TodosFormComponent {
   constructor() {
     this.host = $('<div class="todos-form"></div>');
     this.store = window.store;
+    this.todosService = new TodosService();
+    this.todosEffects = new TodosEffects({ service: this.todosService });
     this.render();
     this.handleEvents();
   }
@@ -22,7 +27,8 @@ export class TodosFormComponent {
       const payload = {
         title: todoTitle,
       };
-      this.store.dispatch({ type: "ADD_TODO", payload });
+      useEffect(tryToAddTodo, this.todosEffects, payload);
+       //this.store.dispatch({ type: addTodo, payload });
     });
   }
 

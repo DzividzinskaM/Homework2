@@ -1,7 +1,12 @@
+import {apiSource} from "../constants/action"
 export class TodosService {
   constructor() {}
 
   getTodos() {
-    return $.get("https://jsonplaceholder.typicode.com/todos");
+    return $.get(apiSource);
+  }
+
+  addTodo(data){
+    return $.post(apiSource, data);
   }
 }

@@ -6,7 +6,7 @@
 //   },
 // ];
 
-import {tryToGetTodos, gotTodos} from "../constants/action";
+import {tryToGetTodos, gotTodos, tryToAddTodo, addTodo} from "../constants/action";
 
 const initialState = {
   list: [
@@ -30,6 +30,36 @@ export function todosReducer(state = initialState, action) {
       return {
         ...state,
         list: action.payload,
+        isLoading: false,
+      };
+    case tryToAddTodo:
+      return{
+        ...state, 
+        isLoading: true,
+      };
+    /* case addTodo:
+      return {
+        ...state, 
+        list: [
+          ...
+          {
+            id: state.length ? state[state.length - 1].id + 1 : 1,
+            title: action.payload.title,
+            completed: false,
+          }
+        ],
+        isLoading: false,
+      } */
+      case addTodo:
+      return {
+        ...state,
+        list: [
+          {
+            id: state.length ? state[state.length - 1].id + 1 : 1,
+            title: action.payload.title,
+            completed: false,
+          },
+        ],
         isLoading: false,
       };
     // case "ADD_TODO":
