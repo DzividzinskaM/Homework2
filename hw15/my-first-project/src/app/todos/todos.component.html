@@ -1,0 +1,9 @@
+<h1>Todos</h1>
+
+<ul *ngFor="let todo of todos">
+  <li>
+    <input type="checkbox" (click)="checkTodo(todo.id)">
+    <span class="todo-{{todo.status}}">{{todo.text}} </span>
+    <button (click)="removeTodo(todo.id)">Delete</button>
+  </li>
+</ul>
